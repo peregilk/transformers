@@ -774,9 +774,9 @@ class TrainingArguments:
         if self.no_cuda:
             device = torch.device("cpu")
             self._n_gpu = 0
-        elif is_torch_tpu_available():
-            device = xm.xla_device()
-            self._n_gpu = 0
+        #elif is_torch_tpu_available():
+        #    device = xm.xla_device()
+        #    self._n_gpu = 0
         elif is_sagemaker_mp_enabled():
             local_rank = smp.local_rank()
             device = torch.device("cuda", local_rank)
